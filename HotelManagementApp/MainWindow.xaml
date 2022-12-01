@@ -376,17 +376,322 @@
                                             </StackPanel>
                                         </TabItem.Header>
 
-                                        <ItemsControl>
+                                        <ItemsControl Margin="20">
+
+
                                             <!--ItemsSource="{Binding Listgood}"-->
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <WrapPanel Background="white"
-                                                               Orientation="Horizontal" />
+                                                               Orientation="Horizontal"
+                                                               IsItemsHost="True"/>
                                                 </ItemsPanelTemplate>
                                             </ItemsControl.ItemsPanel>
+
+
+                                            //
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
                                                     <!--<local:SellGoodsControl />-->
+                                                    <WrapPanel>
+
+
+                                                        <Border BorderThickness="2" BorderBrush="Gray" Margin="15,15">
+                                                            <StackPanel>
+                                                                <Button Height="120" Width="160" >
+                                                                    <Button.Background>
+                                                                        <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                    </Button.Background>
+                                                                </Button>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="ID: 1001" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="Name: Breakfast" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="Price:50000" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="Unit:100" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="Type:Food" >
+                                                                </TextBlock>
+                                                            </StackPanel>
+                                                        </Border>
+
+                                                        <Border BorderThickness="2" BorderBrush="Gray" Margin="15,15">
+                                                            <StackPanel>
+                                                                <Button Height="120" Width="160" >
+                                                                    <Button.Background>
+                                                                        <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                    </Button.Background>
+                                                                </Button>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.ID}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Name}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Price}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Unit}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Type}" >
+                                                                </TextBlock>
+                                                            </StackPanel>
+                                                        </Border>
+                                                        <Border BorderThickness="2" BorderBrush="Gray" Margin="15,15">
+                                                            <StackPanel>
+                                                                <Button Height="120" Width="160" >
+                                                                    <Button.Background>
+                                                                        <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                    </Button.Background>
+                                                                </Button>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.ID}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Name}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Price}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Unit}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Type}" >
+                                                                </TextBlock>
+                                                            </StackPanel>
+                                                        </Border>
+                                                        <Border BorderThickness="2" BorderBrush="Gray" Margin="15,15">
+                                                            <StackPanel>
+                                                                <Button Height="120" Width="160" >
+                                                                    <Button.Background>
+                                                                        <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                    </Button.Background>
+                                                                </Button>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.ID}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Name}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Price}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Unit}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Type}" >
+                                                                </TextBlock>
+                                                            </StackPanel>
+                                                        </Border>
+                                                        <Border BorderThickness="2" BorderBrush="Gray" Margin="15,15">
+                                                            <StackPanel>
+                                                                <Button Height="120" Width="160" >
+                                                                    <Button.Background>
+                                                                        <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                    </Button.Background>
+                                                                </Button>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.ID}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Name}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Price}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Unit}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Type}" >
+                                                                </TextBlock>
+                                                            </StackPanel>
+                                                        </Border>
+                                                        <Border BorderThickness="2" BorderBrush="Gray" Margin="15,15">
+                                                            <StackPanel>
+                                                                <Button Height="120" Width="160" >
+                                                                    <Button.Background>
+                                                                        <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                    </Button.Background>
+                                                                </Button>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.ID}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Name}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Price}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Unit}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Type}" >
+                                                                </TextBlock>
+                                                            </StackPanel>
+                                                        </Border>
+                                                        <Border BorderThickness="2" BorderBrush="Gray" Margin="15,15">
+                                                            <StackPanel>
+                                                                <Button Height="120" Width="160" >
+                                                                    <Button.Background>
+                                                                        <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                    </Button.Background>
+                                                                </Button>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.ID}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Name}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Price}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Unit}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Type}" >
+                                                                </TextBlock>
+                                                            </StackPanel>
+                                                        </Border>
+                                                        <Border BorderThickness="2" BorderBrush="Gray" Margin="15,15">
+                                                            <StackPanel>
+                                                                <Button Height="120" Width="160" >
+                                                                    <Button.Background>
+                                                                        <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                    </Button.Background>
+                                                                </Button>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.ID}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Name}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Price}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Unit}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Type}" >
+                                                                </TextBlock>
+                                                            </StackPanel>
+                                                        </Border>
+                                                        <Border BorderThickness="2" BorderBrush="Gray" Margin="15,15">
+                                                            <StackPanel>
+                                                                <Button Height="120" Width="160" >
+                                                                    <Button.Background>
+                                                                        <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                    </Button.Background>
+                                                                </Button>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.ID}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Name}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Price}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Unit}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Type}" >
+                                                                </TextBlock>
+                                                            </StackPanel>
+                                                        </Border>
+                                                        <Border BorderThickness="2" BorderBrush="Gray" Margin="15,15">
+                                                            <StackPanel>
+                                                                <Button Height="120" Width="160" >
+                                                                    <Button.Background>
+                                                                        <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                    </Button.Background>
+                                                                </Button>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.ID}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Name}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Price}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Unit}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Type}" >
+                                                                </TextBlock>
+                                                            </StackPanel>
+                                                        </Border>
+                                                        <Border BorderThickness="2" BorderBrush="Gray" Margin="15,15">
+                                                            <StackPanel>
+                                                                <Button Height="120" Width="160" >
+                                                                    <Button.Background>
+                                                                        <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                    </Button.Background>
+                                                                </Button>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.ID}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Name}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Price}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Unit}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Type}" >
+                                                                </TextBlock>
+                                                            </StackPanel>
+                                                        </Border>
+                                                        <Border BorderThickness="2" BorderBrush="Gray" Margin="15,15">
+                                                            <StackPanel>
+                                                                <Button Height="120" Width="160" >
+                                                                    <Button.Background>
+                                                                        <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                    </Button.Background>
+                                                                </Button>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.ID}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Name}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Price}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Unit}" >
+                                                                </TextBlock>
+                                                                <TextBlock Height="Auto"
+                                                                     Text="{Binding DataProvider.Ins.DB.Services.Type}" >
+                                                                </TextBlock>
+                                                            </StackPanel>
+                                                        </Border>
+
+
+
+
+
+
+                                                    </WrapPanel>
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
                                             <ItemsControl.Template>
@@ -398,6 +703,8 @@
 
                                                 </ControlTemplate>
                                             </ItemsControl.Template>
+
+
                                         </ItemsControl>
                                     </TabItem>
                                 </TabControl>
@@ -485,8 +792,141 @@
                                                                         Orientation="Vertical" />
                                                         </ItemsPanelTemplate>
                                                     </ItemsControl.ItemsPanel>
+                                                  //
                                                     <ItemsControl.ItemTemplate>
                                                         <DataTemplate>
+                                                            <StackPanel>
+                                                                <Border BorderThickness="2" BorderBrush="Gray" Margin="15,5">
+                                                                    <DockPanel >
+                                                                        <Button Height="60" Width="80" DockPanel.Dock="Left" >
+                                                                            <Button.Background>
+                                                                                <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                            </Button.Background>
+                                                                        </Button>
+                                                                        <TextBlock VerticalAlignment="Center"
+                                                                            Text="1"
+                                                                            Width="60"
+                                                                            DockPanel.Dock="Right">
+                                                                        </TextBlock>
+                                                                        <TextBlock Text="Name: Breakfast"
+                                                                   DockPanel.Dock="Top" Height="Auto" MinHeight="30">
+                                                                        </TextBlock>
+                                                                        <TextBlock Text="Price :50000" 
+                                                                   DockPanel.Dock="Top" Height="Auto"></TextBlock>
+                                                                    </DockPanel>
+                                                                </Border>
+
+                                                                <Border BorderThickness="2" BorderBrush="Gray" Margin="15,5">
+                                                                    <DockPanel >
+                                                                        <Button Height="60" Width="80" DockPanel.Dock="Left" >
+                                                                            <Button.Background>
+                                                                                <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                            </Button.Background>
+                                                                        </Button>
+                                                                        <TextBlock VerticalAlignment="Center"
+                                                                            Width="60"
+                                                                            DockPanel.Dock="Right">
+                                                                        </TextBlock>
+                                                                        <TextBlock Text="{Binding DataProvider.Ins.DB.Services.Name}"
+                                                                   DockPanel.Dock="Top" Height="Auto" MinHeight="30">
+                                                                        </TextBlock>
+                                                                        <TextBlock Text="{Binding DataProvider.Ins.DB.Services.Price}"
+                                                                   DockPanel.Dock="Top" Height="Auto"></TextBlock>
+                                                                    </DockPanel>
+                                                                </Border>
+                                                                <Border BorderThickness="2" BorderBrush="Gray" Margin="15,5">
+                                                                    <DockPanel >
+                                                                        <Button Height="60" Width="80" DockPanel.Dock="Left" >
+                                                                            <Button.Background>
+                                                                                <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                            </Button.Background>
+                                                                        </Button>
+                                                                        <TextBlock VerticalAlignment="Center"
+                                                                            Width="60"
+                                                                            DockPanel.Dock="Right">
+                                                                        </TextBlock>
+                                                                        <TextBlock Text="{Binding DataProvider.Ins.DB.Services.Name}"
+                                                                   DockPanel.Dock="Top" Height="Auto" MinHeight="30">
+                                                                        </TextBlock>
+                                                                        <TextBlock Text="{Binding DataProvider.Ins.DB.Services.Price}"
+                                                                   DockPanel.Dock="Top" Height="Auto"></TextBlock>
+                                                                    </DockPanel>
+                                                                </Border>
+                                                                <Border BorderThickness="2" BorderBrush="Gray" Margin="15,5">
+                                                                    <DockPanel >
+                                                                        <Button Height="60" Width="80" DockPanel.Dock="Left" >
+                                                                            <Button.Background>
+                                                                                <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                            </Button.Background>
+                                                                        </Button>
+                                                                        <TextBlock VerticalAlignment="Center"
+                                                                            Width="60"
+                                                                            DockPanel.Dock="Right">
+                                                                        </TextBlock>
+                                                                        <TextBlock Text="{Binding DataProvider.Ins.DB.Services.Name}"
+                                                                   DockPanel.Dock="Top" Height="Auto" MinHeight="30">
+                                                                        </TextBlock>
+                                                                        <TextBlock Text="{Binding DataProvider.Ins.DB.Services.Price}"
+                                                                   DockPanel.Dock="Top" Height="Auto"></TextBlock>
+                                                                    </DockPanel>
+                                                                </Border>
+                                                                <Border BorderThickness="2" BorderBrush="Gray" Margin="15,5">
+                                                                    <DockPanel >
+                                                                        <Button Height="60" Width="80" DockPanel.Dock="Left" >
+                                                                            <Button.Background>
+                                                                                <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                            </Button.Background>
+                                                                        </Button>
+                                                                        <TextBlock VerticalAlignment="Center"
+                                                                            Width="60"
+                                                                            DockPanel.Dock="Right">
+                                                                        </TextBlock>
+                                                                        <TextBlock Text="{Binding DataProvider.Ins.DB.Services.Name}"
+                                                                   DockPanel.Dock="Top" Height="Auto" MinHeight="30">
+                                                                        </TextBlock>
+                                                                        <TextBlock Text="{Binding DataProvider.Ins.DB.Services.Price}"
+                                                                   DockPanel.Dock="Top" Height="Auto"></TextBlock>
+                                                                    </DockPanel>
+                                                                </Border>
+                                                                <Border BorderThickness="2" BorderBrush="Gray" Margin="15,5">
+                                                                    <DockPanel >
+                                                                        <Button Height="60" Width="80" DockPanel.Dock="Left" >
+                                                                            <Button.Background>
+                                                                                <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                            </Button.Background>
+                                                                        </Button>
+                                                                        <TextBlock VerticalAlignment="Center"
+                                                                            Width="60"
+                                                                            DockPanel.Dock="Right">
+                                                                        </TextBlock>
+                                                                        <TextBlock Text="{Binding DataProvider.Ins.DB.Services.Name}"
+                                                                   DockPanel.Dock="Top" Height="Auto" MinHeight="30">
+                                                                        </TextBlock>
+                                                                        <TextBlock Text="{Binding DataProvider.Ins.DB.Services.Price}"
+                                                                   DockPanel.Dock="Top" Height="Auto"></TextBlock>
+                                                                    </DockPanel>
+                                                                </Border>
+                                                                <Border BorderThickness="2" BorderBrush="Gray" Margin="15,5">
+                                                                    <DockPanel >
+                                                                        <Button Height="60" Width="80" DockPanel.Dock="Left" >
+                                                                            <Button.Background>
+                                                                                <ImageBrush ImageSource="ImageStorage\FoodImg\Food.jpg"/>
+                                                                            </Button.Background>
+                                                                        </Button>
+                                                                        <TextBlock VerticalAlignment="Center"
+                                                                            Width="60"
+                                                                            DockPanel.Dock="Right">
+                                                                        </TextBlock>
+                                                                        <TextBlock Text="{Binding DataProvider.Ins.DB.Services.Name}"
+                                                                   DockPanel.Dock="Top" Height="Auto" MinHeight="30">
+                                                                        </TextBlock>
+                                                                        <TextBlock Text="{Binding DataProvider.Ins.DB.Services.Price}"
+                                                                   DockPanel.Dock="Top" Height="Auto"></TextBlock>
+                                                                    </DockPanel>
+                                                                </Border>
+
+
+                                                            </StackPanel>
                                                             <!--<local:ProductDetailsControl />-->
                                                         </DataTemplate>
                                                     </ItemsControl.ItemTemplate>
@@ -583,12 +1023,14 @@
                             <RowDefinition Height="220*" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="133*" />
-                            <ColumnDefinition Width="133*" />
-                            <ColumnDefinition Width="133*" />
+                            <ColumnDefinition Width="51*" />
+                            <ColumnDefinition Width="258*"/>
+                            <ColumnDefinition Width="100*"/>
+                            <ColumnDefinition Width="409*" />
+                            <ColumnDefinition Width="409*" />
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="1"
-                              Grid.Column="0">
+                              Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0,204" Grid.RowSpan="2">
                             <Button x:Name="FB_Billbtb"
                                     Width="200"
                                     Height="150"
@@ -624,7 +1066,7 @@
                             </Button>
                         </Grid>
                         <Grid Grid.Row="2"
-                              Grid.Column="0">
+                              Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0,204" Grid.RowSpan="2">
                             <Button x:Name="VL_billbtb"
                                     Width="200"
                                     Height="150"
@@ -652,7 +1094,7 @@
                             </Button>
                         </Grid>
                         <Grid Grid.Row="3"
-                              Grid.Column="0">
+                              Grid.Column="0" Grid.ColumnSpan="3">
                             <Button x:Name="Bk_billbtb"
                                     Width="200"
                                     Height="150"
@@ -692,9 +1134,9 @@
                         </Grid>
                         <Grid Grid.Row="1"
                               Grid.RowSpan="3"
-                              Grid.Column="1"
-                              Grid.ColumnSpan="2"
-                              Margin="0,20,20,20">
+                              Grid.Column="2"
+                              Grid.ColumnSpan="3"
+                              Margin="100,20,20,20">
                             <Border Grid.Column="0"
                                     Width="auto"
                                     Height="auto"
@@ -741,8 +1183,7 @@
 
 
                         <TextBlock Grid.Row="0"
-                                   Grid.Column="1"
-                                   Margin="0,0,0,-20"
+                                   Grid.Column="3"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Top"
                                    FontFamily="Bungee Inline"
@@ -776,7 +1217,7 @@
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
-               
+
                                 <Button x:Name="SingleBR"
                                         Width="300"
                                         Height="450"
@@ -1410,34 +1851,34 @@
                         </Grid>
                         <!--DataContext="{StaticResource EmployeeVM}"-->
                         <Grid Grid.Column="1">
-                                <Border Background="Transparent"
+                            <Border Background="Transparent"
                                     Visibility="{Binding Visibility}">
-                                    <Border Margin="10,20,20,20"
+                                <Border Margin="10,20,20,20"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
                                         Background="White"
                                         CornerRadius="20">
-                                        <Border.Effect>
-                                            <DropShadowEffect ShadowDepth="1" />
-                                        </Border.Effect>
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="204*" />
-                                                <RowDefinition Height="325*" />
-                                                <RowDefinition Height="94*" />
-                                            </Grid.RowDefinitions>
-                                            <Grid Grid.Row="0"
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="1" />
+                                    </Border.Effect>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="204*" />
+                                            <RowDefinition Height="325*" />
+                                            <RowDefinition Height="94*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0"
                                               Margin="0,0,-0.2,1">
-                                                <Grid x:Name="grdSelectImg1"
+                                            <Grid x:Name="grdSelectImg1"
                                                   Width="150"
                                                   Height="150"
                                                   Margin="10,30,0,0"
                                                   HorizontalAlignment="Center"
                                                   VerticalAlignment="Top">
-                                                    <Grid.Background>
-                                                        <ImageBrush ImageSource="{Binding EmployeeImage, UpdateSourceTrigger=PropertyChanged}" />
-                                                    </Grid.Background>
-                                                    <Rectangle x:Name="recImage1"
+                                                <Grid.Background>
+                                                    <ImageBrush ImageSource="{Binding EmployeeImage, UpdateSourceTrigger=PropertyChanged}" />
+                                                </Grid.Background>
+                                                <Rectangle x:Name="recImage1"
                                                            Width="150"
                                                            Height="153"
                                                            Margin="0,0,0,-2"
@@ -1448,7 +1889,7 @@
                                                            Stroke="#5C0DAC"
                                                            StrokeDashArray="4 2"
                                                            StrokeThickness="4" />
-                                                    <Button x:Name="btnSelectImage1"
+                                                <Button x:Name="btnSelectImage1"
                                                         Width="120"
                                                         Height="35"
                                                         Margin="0,0,0,-56"
@@ -1463,9 +1904,9 @@
                                                         FontWeight="SemiBold"
                                                         ToolTip="Chọn ảnh" />
 
-                                                </Grid>
                                             </Grid>
-                                            <Grid x:Name="grdInfo1"
+                                        </Grid>
+                                        <Grid x:Name="grdInfo1"
                                               Grid.Row="1"
                                               Grid.RowSpan="2"
                                               Width="420"
@@ -1474,11 +1915,11 @@
                                               HorizontalAlignment="Center"
                                               VerticalAlignment="Top">
 
-                                                <Grid Width="350"
+                                            <Grid Width="350"
                                                   Height="40"
                                                   Margin="0,0,0,0"
                                                   VerticalAlignment="Top">
-                                                    <Label Height="32"
+                                                <Label Height="32"
                                                        Margin="0"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"
@@ -1486,14 +1927,14 @@
                                                        FontSize="18"
                                                        FontWeight="SemiBold"
                                                        Foreground="Black" />
-                                                    <Rectangle Width="230"
+                                                <Rectangle Width="230"
                                                            Height="40"
                                                            Margin="0"
                                                            HorizontalAlignment="Right"
                                                            RadiusX="6"
                                                            RadiusY="6"
                                                            Stroke="Gray" />
-                                                    <TextBox x:Name="txtName1"
+                                                <TextBox x:Name="txtName1"
                                                          Width="210"
                                                          Height="40"
                                                          Margin="0,0,10,0"
@@ -1510,12 +1951,12 @@
                                                          Foreground="Gray"
                                                          MaxLines="1"
                                                          Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  />
-                                                </Grid>
-                                                <Grid Width="350"
+                                            </Grid>
+                                            <Grid Width="350"
                                                   Height="40"
                                                   Margin="0,50,0,0"
                                                   VerticalAlignment="Top">
-                                                    <Label Height="32"
+                                                <Label Height="32"
                                                        Margin="0"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"
@@ -1523,14 +1964,14 @@
                                                        FontSize="18"
                                                        FontWeight="SemiBold"
                                                        Foreground="Black" />
-                                                    <Rectangle Width="230"
+                                                <Rectangle Width="230"
                                                            Height="40"
                                                            Margin="0"
                                                            HorizontalAlignment="Right"
                                                            RadiusX="6"
                                                            RadiusY="6"
                                                            Stroke="Gray" />
-                                                    <TextBox x:Name="txtUnit1"
+                                                <TextBox x:Name="txtUnit1"
                                                          Width="210"
                                                          Height="40"
                                                          Margin="0,0,10,0"
@@ -1546,12 +1987,12 @@
                                                          Foreground="Gray"
                                                          MaxLines="1"
                                                          Text="{Binding Sex, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                                                </Grid>
-                                                <Grid Width="350"
+                                            </Grid>
+                                            <Grid Width="350"
                                                   Height="40"
                                                   Margin="0,100,0,0"
                                                   VerticalAlignment="Top">
-                                                    <Label Height="32"
+                                                <Label Height="32"
                                                        Margin="0"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"
@@ -1559,14 +2000,14 @@
                                                        FontSize="18"
                                                        FontWeight="SemiBold"
                                                        Foreground="Black" />
-                                                    <Rectangle Width="230"
+                                                <Rectangle Width="230"
                                                            Height="40"
                                                            Margin="0"
                                                            HorizontalAlignment="Right"
                                                            RadiusX="6"
                                                            RadiusY="6"
                                                            Stroke="Gray" />
-                                                    <TextBox x:Name="txtUnitPrice1"
+                                                <TextBox x:Name="txtUnitPrice1"
                                                          Width="210"
                                                          Height="40"
                                                          Margin="0,0,10,0"
@@ -1581,12 +2022,12 @@
                                                          FontWeight="SemiBold"
                                                          Foreground="Gray"
                                                          Text="{Binding CCCD, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:C}}" />
-                                                </Grid>
-                                                <Grid Width="350"
+                                            </Grid>
+                                            <Grid Width="350"
                                                   Height="40"
                                                   Margin="0,150,0,0"
                                                   VerticalAlignment="Top">
-                                                    <Label Height="32"
+                                                <Label Height="32"
                                                        Margin="0"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"
@@ -1594,14 +2035,14 @@
                                                        FontSize="18"
                                                        FontWeight="SemiBold"
                                                        Foreground="Black" />
-                                                    <Rectangle Width="230"
+                                                <Rectangle Width="230"
                                                            Height="40"
                                                            Margin="0"
                                                            HorizontalAlignment="Right"
                                                            RadiusX="6"
                                                            RadiusY="6"
                                                            Stroke="Gray" />
-                                                    <TextBox x:Name="txtPhone"
+                                                <TextBox x:Name="txtPhone"
                                                          Width="210"
                                                          Height="40"
                                                          Margin="0,0,10,0"
@@ -1616,12 +2057,12 @@
                                                          FontWeight="SemiBold"
                                                          Foreground="Gray"
                                                          Text="{Binding PhoneNum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                                                </Grid>
-                                                <Grid Width="350"
+                                            </Grid>
+                                            <Grid Width="350"
                                                   Height="40"
                                                   Margin="0,200,0,0"
                                                   VerticalAlignment="Top">
-                                                    <Label Height="32"
+                                                <Label Height="32"
                                                        Margin="0"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"
@@ -1629,7 +2070,7 @@
                                                        FontSize="18"
                                                        FontWeight="SemiBold"
                                                        Foreground="Black" />
-                                                    <Rectangle Width="230"
+                                                <Rectangle Width="230"
                                                            Height="40"
                                                            Margin="0"
                                                            HorizontalAlignment="Right"
@@ -1660,19 +2101,19 @@
                                                     </ComboBoxItem>
                                                 </ComboBox>
                                             </Grid>
-                                            </Grid>
+                                        </Grid>
 
-                                            <Grid Grid.Row="2"
+                                        <Grid Grid.Row="2"
                                               Height="40"
                                               Margin="0,2.2,-0.2,0"
                                               VerticalAlignment="Top">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="2*" />
-                                                    <ColumnDefinition Width="2*" />
-                                                    <ColumnDefinition Width="2*" />
-                                                </Grid.ColumnDefinitions>
-                                                <Grid Grid.Column="0">
-                                                    <Button x:Name="btnAdd1"
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="2*" />
+                                                <ColumnDefinition Width="2*" />
+                                                <ColumnDefinition Width="2*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0">
+                                                <Button x:Name="btnAdd1"
                                                         Width="100"
                                                         Height="40"
                                                         Padding="0"
@@ -1685,9 +2126,9 @@
                                                         FontSize="18"
                                                         IsDefault="True"
                                                         ToolTip="Thêm" />
-                                                </Grid>
-                                                <Grid Grid.Column="1">
-                                                    <Button x:Name="btnEdit1"
+                                            </Grid>
+                                            <Grid Grid.Column="1">
+                                                <Button x:Name="btnEdit1"
                                                         Width="100"
                                                         Height="40"
                                                         Margin="0"
@@ -1702,9 +2143,9 @@
                                                         FontSize="18"
                                                         IsDefault="True"
                                                         ToolTip="Sửa" />
-                                                </Grid>
-                                                <Grid Grid.Column="2">
-                                                    <Button x:Name="btnDelete1"
+                                            </Grid>
+                                            <Grid Grid.Column="2">
+                                                <Button x:Name="btnDelete1"
                                                         Width="100"
                                                         Height="40"
                                                         Margin="0"
@@ -1718,12 +2159,12 @@
                                                         FontSize="18"
                                                         Style="{StaticResource MaterialDesignRaisedButton}"
                                                         ToolTip="Xóa" />
-                                                </Grid>
-
                                             </Grid>
+
                                         </Grid>
-                                    </Border>
+                                    </Grid>
                                 </Border>
+                            </Border>
 
                         </Grid>
                     </Grid>
@@ -2311,7 +2752,7 @@
                                                     </ComboBoxItem>
                                                 </ComboBox>
                                             </Grid>
-                                            
+
                                         </Grid>
 
                                         <Grid Grid.Row="2"
