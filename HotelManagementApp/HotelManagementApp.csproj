@@ -135,8 +135,8 @@
     <Compile Include="UserControlUI\ControlBarUC.xaml.cs">
       <DependentUpon>ControlBarUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\AddRoomForAdminViewModel.cs" />
-    <Compile Include="ViewModel\AddRoomTypes.cs" />
+    <Compile Include="ViewModel\AddRoomForAdmin\AddRoomForAdminViewModel.cs" />
+    <Compile Include="ViewModel\AddRoomTypes\AddRoomTypes.cs" />
     <Compile Include="ViewModel\AddRoom\AddRoomViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\FoodsAndServices\FoodViewModel.cs" />

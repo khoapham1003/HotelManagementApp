@@ -359,8 +359,6 @@
                             <Grid Grid.Column="0"
                                   Margin="10">
 
-
-
                                 <!--  Filter và search  -->
 
                                 <TabControl Grid.RowSpan="2"
@@ -371,6 +369,7 @@
                                     <!--SelectionChanged="TabControl_SelectionChanged_1"-->
 
                                     <!--  Nước uống  -->
+
                                     <TabItem Width="840">
                                         <TabItem.Header>
                                             <StackPanel Width="auto"
@@ -383,51 +382,54 @@
                                             </StackPanel>
                                         </TabItem.Header>
                                         <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto">
-                                                <ListBox DataContext="{StaticResource FoodVm}"  ItemsSource="{Binding FoodsAndServicesList, UpdateSourceTrigger=PropertyChanged}" 
+                                            <ListBox DataContext="{StaticResource FoodVm}"  ItemsSource="{Binding FoodsAndServicesList, UpdateSourceTrigger=PropertyChanged}" 
                                                      SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
                                                      x:Name="lbFAndS" Margin="20" Height="500" Width="Auto">
-                                                    <ListBox.ItemsPanel>
-                                                        <ItemsPanelTemplate>
-                                                            <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
-                                                        </ItemsPanelTemplate>
-                                                    </ListBox.ItemsPanel>
+                                                <ListBox.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+                                                    </ItemsPanelTemplate>
+                                                </ListBox.ItemsPanel>
 
-                                                    <ListBox.ItemTemplate>
-                                                        <DataTemplate>
-                                                            <!-- <local1:FAndSBlock DataContext="{Binding}"/> -->
-                                                            <Border MaxHeight="200" MaxWidth="180"
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <!-- <local1:FAndSBlock DataContext="{Binding}"/> -->
+                                                        <Border MaxHeight="200" MaxWidth="180"
                                                                 Grid.Row="1" Background="AntiqueWhite"
-                                                                BorderThickness="2" BorderBrush="Gray">
-                                                                <StackPanel>
-                                                                    <Image x:Name="FAndSImage" Stretch="Fill"
+                                                                BorderThickness="2" BorderBrush="Gray"
+                                                                CornerRadius="4" Padding="8">
+                                                            <StackPanel>
+                                                                <Image x:Name="FAndSImage" Stretch="Fill"
                                                                        MaxWidth="180" MaxHeight="100"
                                                                        MinWidth="180" MinHeight="100"
                                                                        Source="{Binding Path=ImageData, UpdateSourceTrigger=PropertyChanged}"/>
-                                                                    <TextBlock Height="25" Foreground="Black" FontWeight="Bold">
+                                                                <TextBlock Height="20" Foreground="Black" FontWeight="Bold">
                                                                             <Run Text="Name:"/>
                                                                             <Run Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
-                                                                    </TextBlock>
-                                                                    <TextBlock Height="25" Foreground="Black">
+                                                                </TextBlock>
+                                                                <TextBlock Height="20" Foreground="Black">
                                                                             <Run Text="Price:"/>   
                                                                             <Run Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"/>
-                                                                    </TextBlock>
-                                                                    <TextBlock Height="25" Foreground="Black">
+                                                                </TextBlock>
+                                                                <TextBlock Height="20" Foreground="Black">
                                                                             <Run Text="Unit:"/>   
                                                                             <Run Text="{Binding Unit, UpdateSourceTrigger=PropertyChanged}"/>
-                                                                    </TextBlock>
-                                                                    <TextBlock Height="25" Foreground="Black">
+                                                                </TextBlock>
+                                                                <TextBlock Height="20" Foreground="Black">
                                                                             <Run Text="Type:"/>   
                                                                             <Run Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}"/>
-                                                                    </TextBlock>
-                                                                </StackPanel>
-                                                            </Border>
-                                                        </DataTemplate>
-                                                    </ListBox.ItemTemplate>
-                                                </ListBox>
-                                            </ScrollViewer>
-                                        </TabItem>
+                                                                </TextBlock>
+                                                            </StackPanel>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                        </ScrollViewer>
+                                    </TabItem>
 
-                            <!--  Đặt hàng  -->
+                                    <!--  Đặt hàng  -->
+                                </TabControl>
+                            </Grid>
                             <Grid Grid.Column="1">
 
                                 <Grid.RowDefinitions>
@@ -582,8 +584,6 @@
                                 <!--  Nút đặt hàng  -->
                             </Grid>
                         </Grid>
-
-
                     </Grid>
                 </TabItem>
                 <TabItem>
@@ -1968,7 +1968,7 @@
                         </StackPanel>
                     </TabItem.Header>
 
-                    <!--  UI Employee Start Here  -->
+                    <!--  UI Rooms Start Here  -->
 
                     <Grid Background="Transparent">
                         <Grid.ColumnDefinitions>
@@ -2057,6 +2057,7 @@
                                                     Height="35"
                                                     FontSize="14"
                                                     ItemsSource="{Binding RoomTypesList, UpdateSourceTrigger=PropertyChanged}"
+                                                    DisplayMemberPath="Name"
                                                     Text="{}"
                                                     SelectedItem="{Binding TypeFilter, UpdateSourceTrigger=PropertyChanged}"
                                                     Width="110">
@@ -2251,9 +2252,9 @@
                                                            Stroke="Gray" />
                                                 <ComboBox Width="210"
                                                                  Height="40"
-                                                                 Margin="0,0,10,0"
+                                                                 Margin="130,0,0,0"
                                                                  Padding="0"
-                                                                 HorizontalAlignment="Right"
+                                                                 HorizontalAlignment="Left"
                                                                  HorizontalContentAlignment="Left"
                                                                  VerticalContentAlignment="Center"
                                                                  materialDesign:HintAssist.Hint="Room Type"
@@ -2262,16 +2263,11 @@
                                                                  FontSize="14"
                                                                  FontWeight="SemiBold"
                                                                  Foreground="Gray"
-                                                                 Text="{Binding Type, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                                                    <ComboBoxItem Cursor="Hand">
-                                                        <TextBlock Text="Single Bed Room"/>
-                                                    </ComboBoxItem>
-                                                    <ComboBoxItem Cursor="Hand">
-                                                        <TextBlock Text="Double Bed Room"/>
-                                                    </ComboBoxItem>
-                                                    <ComboBoxItem Cursor="Hand">
-                                                        <TextBlock Text="Triple Bed Room"/>
-                                                    </ComboBoxItem>
+                                                          
+                                                                 ItemsSource="{Binding RoomTypesList}"
+                                                                 DisplayMemberPath="Name"
+                                                                 SelectedItem="{Binding Type}"                                                       
+                                                                 Text="{Binding Type.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                                                 </ComboBox>
                                             </Grid>
                                             <Grid Width="350"
@@ -2293,7 +2289,7 @@
                                                            RadiusX="6"
                                                            RadiusY="6"
                                                            Stroke="Gray" />
-                                                <TextBox Width="210"
+                                                <ComboBox Width="210"
                                                          Height="40"
                                                          Margin="0,0,10,0"
                                                          Padding="0"
@@ -2306,7 +2302,12 @@
                                                          FontSize="14"
                                                          FontWeight="SemiBold"
                                                          Foreground="Gray"
-                                                         Text="{Binding Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:C}}" />
+                                                         Text="{Binding Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:C}}">
+                                                    <ComboBoxItem>Available</ComboBoxItem>
+                                                    <ComboBoxItem>Booked</ComboBoxItem>
+                                                    <ComboBoxItem>Cleaning</ComboBoxItem>
+                                                    <ComboBoxItem>Repairing</ComboBoxItem>
+                                                </ComboBox>
                                             </Grid>
                                         </Grid>
 
@@ -2393,7 +2394,7 @@
                         </StackPanel>
                     </TabItem.Header>
 
-                    <!--  UI Employee Start Here  -->
+                    <!--  UI Room Types Here  -->
 
                     <Grid Background="Transparent">
                         <Grid.ColumnDefinitions>
@@ -2439,9 +2440,8 @@
                                                     Width="110">
                                                 <ComboBoxItem></ComboBoxItem>
                                                 <ComboBoxItem>ID</ComboBoxItem>
-                                                <ComboBoxItem>Room Num</ComboBoxItem>
-                                                <ComboBoxItem>Room Type</ComboBoxItem>
-                                                <ComboBoxItem>Status</ComboBoxItem>
+                                                <ComboBoxItem>Name</ComboBoxItem>
+                                                <ComboBoxItem>Price</ComboBoxItem>
                                             </ComboBox>
                                         </Border>
                                         <TextBox
@@ -2482,6 +2482,7 @@
                                                     Height="35"
                                                     FontSize="14"
                                                     ItemsSource="{Binding RoomTypesList, UpdateSourceTrigger=PropertyChanged}"
+                                                    DisplayMemberPath="Name"
                                                     Text="{}"
                                                     SelectedItem="{Binding TypeFilter, UpdateSourceTrigger=PropertyChanged}"
                                                     Width="110">
@@ -2493,7 +2494,7 @@
 
 
 
-                                        <DataGrid Margin="3256,-140,-3236,160"
+                                        <DataGrid Margin="10,10,10,10"
                                                   AlternatingRowBackground="#FFF8EBF9"
                                                   AutoGenerateColumns="False"
                                                   Background="{x:Null}"
@@ -2529,21 +2530,15 @@
                                                                                    FontWeight="Bold"
                                                                                    Header="ID" />
                                                 <materialDesign:DataGridTextColumn Width="2*"
-                                                                                   Binding="{Binding RoomNum}"
+                                                                                   Binding="{Binding Name}"
                                                                                    EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
                                                                                    ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
-                                                                                   Header="Room Num" />
+                                                                                   Header="Type" />
                                                 <materialDesign:DataGridTextColumn Width="1.5*"
-                                                                                   Binding="{Binding RoomType.Name}"
+                                                                                   Binding="{Binding Price}"
                                                                                    EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
                                                                                    ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
-                                                                                   Header="Room Type" />
-                                                <materialDesign:DataGridTextColumn Width="1.5*"
-                                                                                   Binding="{Binding Status, StringFormat={}{0:C}}"
-                                                                                   EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
-                                                                                   ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
-                                                                                   Header="Status" ></materialDesign:DataGridTextColumn>
-
+                                                                                   Header="Price" />
 
 
                                             </DataGrid.Columns>
