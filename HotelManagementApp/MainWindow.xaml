@@ -371,7 +371,7 @@
                                     <!--SelectionChanged="TabControl_SelectionChanged_1"-->
 
                                     <!--  Nước uống  -->
-                                    <TabItem Width="840">
+                                   <TabItem Width="840">
                                         <TabItem.Header>
                                             <StackPanel Width="auto"
                                                         Height="auto">
@@ -382,31 +382,50 @@
                                                            Text="MENU" />
                                             </StackPanel>
                                         </TabItem.Header>
+                                        <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto">
+                                                <ListBox DataContext="{StaticResource FoodVm}"  ItemsSource="{Binding FoodsAndServicesList, UpdateSourceTrigger=PropertyChanged}" 
+                                                     SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+                                                     x:Name="lbFAndS" Margin="20" Height="500" Width="Auto">
+                                                    <ListBox.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListBox.ItemsPanel>
 
-                                        <ItemsControl>
-                                            <!--ItemsSource="{Binding Listgood}"-->
-                                            <ItemsControl.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <WrapPanel Background="white"
-                                                               Orientation="Horizontal" />
-                                                </ItemsPanelTemplate>
-                                            </ItemsControl.ItemsPanel>
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-                                                    <!--<local:SellGoodsControl />-->
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                            <ItemsControl.Template>
-                                                <ControlTemplate>
-                                                    <ScrollViewer>
-                                                        <!--Padding="{TemplateBinding Padding}"-->
-                                                        <ItemsPresenter />
-                                                    </ScrollViewer>
-
-                                                </ControlTemplate>
-                                            </ItemsControl.Template>
-                                        </ItemsControl>
-                                    </TabItem>
+                                                    <ListBox.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <!-- <local1:FAndSBlock DataContext="{Binding}"/> -->
+                                                            <Border MaxHeight="200" MaxWidth="180"
+                                                                Grid.Row="1" Background="AntiqueWhite"
+                                                                BorderThickness="2" BorderBrush="Gray">
+                                                                <StackPanel>
+                                                                    <Image x:Name="FAndSImage" Stretch="Fill"
+                                                                       MaxWidth="180" MaxHeight="100"
+                                                                       MinWidth="180" MinHeight="100"
+                                                                       Source="{Binding Path=ImageData, UpdateSourceTrigger=PropertyChanged}"/>
+                                                                    <TextBlock Height="25" Foreground="Black" FontWeight="Bold">
+                                                                            <Run Text="Name:"/>
+                                                                            <Run Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                                                                    </TextBlock>
+                                                                    <TextBlock Height="25" Foreground="Black">
+                                                                            <Run Text="Price:"/>   
+                                                                            <Run Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"/>
+                                                                    </TextBlock>
+                                                                    <TextBlock Height="25" Foreground="Black">
+                                                                            <Run Text="Unit:"/>   
+                                                                            <Run Text="{Binding Unit, UpdateSourceTrigger=PropertyChanged}"/>
+                                                                    </TextBlock>
+                                                                    <TextBlock Height="25" Foreground="Black">
+                                                                            <Run Text="Type:"/>   
+                                                                            <Run Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}"/>
+                                                                    </TextBlock>
+                                                                </StackPanel>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </ListBox.ItemTemplate>
+                                                </ListBox>
+                                            </ScrollViewer>
+                                        </TabItem>
                                 </TabControl>
                             </Grid>
 
