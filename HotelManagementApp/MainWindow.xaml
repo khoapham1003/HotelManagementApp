@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:uc="clr-namespace:HotelManagementApp.UserControlUI"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:local1="clr-namespace:HotelManagementApp.View"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -19,9 +20,9 @@
         DataContext="{StaticResource MainVm}"
         Name="MainMenuWindow"
         Title="Hotel Management Application"
-        WindowStartupLocation="CenterScreen"
         Width="1300"
         Height="700">
+
     <Window.Background>
 
         <ImageBrush ImageSource="Images/background.jpg" />
@@ -77,12 +78,10 @@
                     </TabItem.Header>
                     <!--  MainUI start here  -->
                     <Grid>
-                        <Grid Name="MainUI" 
-                              Visibility="{Binding AdminVisibility, Source={StaticResource Const}}">
+                        <Grid Name="MainUI" Visibility="{Binding AdminVisibility}">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="250" />
-                                <RowDefinition Height="141*" />
-                                <RowDefinition Height="277*"/>
+                                <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0">
                                 <Grid.ColumnDefinitions>
@@ -138,8 +137,8 @@
                                        VerticalContentAlignment="Center"
                                        FontSize="22"
                                        FontWeight="Bold"
-                                        Content="{Binding Alltimerevenue}"
                                        Foreground="#DDF9F9F9" />
+                                    <!--Content="{Binding Alltimerevenue}"-->
 
                                 </Grid>
                                 <Grid Grid.Column="1">
@@ -190,8 +189,8 @@
                                        HorizontalContentAlignment="Center"
                                        FontSize="22"
                                        FontWeight="Bold"
-                                        Content="{Binding ThisMonthRevenue}"
                                        Foreground="#DDF9F9F9" />
+                                    <!--Content="{Binding ThisMonthRevenue}"-->
                                 </Grid>
                                 <Grid Grid.Column="2">
                                     <Grid.ColumnDefinitions>
@@ -250,8 +249,8 @@
                                        FontWeight="Bold"
                                        Foreground="#DDF9F9F9"
                                        RenderTransformOrigin="0.5,0.5"
-                                        Content="{Binding AlltimerevenueUSD}"
                                        Grid.Column="1">
+                                        <!--Content="{Binding AlltimerevenueUSD}"-->
                                         <Label.RenderTransform>
                                             <TransformGroup>
                                                 <ScaleTransform />
@@ -263,7 +262,7 @@
                                     </Label>
                                 </Grid>
                             </Grid>
-                            <Grid Grid.Row="1" Grid.RowSpan="2">
+                            <Grid Grid.Row="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="74*" />
                                     <RowDefinition Height="133*" />
@@ -279,19 +278,16 @@
                                                      materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                                      Foreground="{x:Null}"
                                                      UniformCornerRadius="10" />
-                                    <Wpf:PieChart
-                                        Margin="8,20"
-                                        DataTooltip="{x:Null}"
-                                        Hoverable="True"
-                                        InnerRadius="5"
-                                        FontSize="12"
-                                        LegendLocation="Bottom"
-                                        Series="{Binding SeriesCollectionPie}" 
-                                        StartingRotationAngle="0"/>
+                                    <!--<Wpf:PieChart
+                                    DataTooltip="{x:Null}"
+                                    Hoverable="True"
+                                    InnerRadius="10"
+                                    LegendLocation="Bottom"
+                                    Series="{Binding SeriesCollection}" />-->
                                     <Button Width="100"
-                                            Margin="100,0,100.4,331.6"
-                                            Command="{Binding RefreshStatictics}"
-                                            Content="REFRESH" />
+                                        Margin="100,0,100.4,331.6"
+                                        Content="RELOAD" />
+                                    <!--Command="{Binding ReloadStatictics}"-->
                                 </Grid>
                                 <Grid Grid.RowSpan="2"
                                   Grid.Column="1"
@@ -300,15 +296,14 @@
                                                      materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                                      Foreground="{x:Null}"
                                                      UniformCornerRadius="10" />
-                                    <Wpf:CartesianChart LegendLocation="Right" Series="{Binding SeriesCollectionCart}">
-                                        <Wpf:CartesianChart.AxisY>
-                                            <Wpf:Axis Title="Income" LabelFormatter="{Binding YFormatter}" />
-                                        </Wpf:CartesianChart.AxisY>
-                                        <Wpf:CartesianChart.AxisX>
-                                            <Wpf:Axis Title="Month" Labels="{Binding Labels}" 
-                                                      Position="LeftBottom"/>
-                                        </Wpf:CartesianChart.AxisX>
-                                    </Wpf:CartesianChart>
+                                    <!--<Wpf:CartesianChart LegendLocation="Right" Series="{Binding SeriesCollection1}">
+                                    <Wpf:CartesianChart.AxisY>
+                                        <Wpf:Axis Title="Income" LabelFormatter="{Binding YFormatter}" />
+                                    </Wpf:CartesianChart.AxisY>
+                                    <Wpf:CartesianChart.AxisX>
+                                        <Wpf:Axis Title="Month" Labels="{Binding Labels}" />
+                                    </Wpf:CartesianChart.AxisX>
+                                </Wpf:CartesianChart>-->
 
                                 </Grid>
                             </Grid>
@@ -317,7 +312,6 @@
 
                 </TabItem>
                 <TabItem>
-
 
                     <TabItem.Header>
 
@@ -383,29 +377,21 @@
                                             </StackPanel>
                                         </TabItem.Header>
 
-                                        <ItemsControl>
-                                            <!--ItemsSource="{Binding Listgood}"-->
-                                            <ItemsControl.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <WrapPanel Background="white"
-                                                               Orientation="Horizontal" />
-                                                </ItemsPanelTemplate>
-                                            </ItemsControl.ItemsPanel>
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-                                                    <!--<local:SellGoodsControl />-->
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                            <ItemsControl.Template>
-                                                <ControlTemplate>
-                                                    <ScrollViewer>
-                                                        <!--Padding="{TemplateBinding Padding}"-->
-                                                        <ItemsPresenter />
-                                                    </ScrollViewer>
+                                        <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto">
+                                            <ListBox DataContext="{StaticResource FoodVm}" ItemsSource="{Binding FoodsAndServicesList}" Margin="20" Height="Auto" Width="Auto">
+                                                <ListBox.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+                                                    </ItemsPanelTemplate>
+                                                </ListBox.ItemsPanel>
 
-                                                </ControlTemplate>
-                                            </ItemsControl.Template>
-                                        </ItemsControl>
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <local1:FAndSBlock DataContext="{Binding }"/>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                        </ScrollViewer>
                                     </TabItem>
                                 </TabControl>
                             </Grid>
@@ -1094,7 +1080,7 @@
                                                   HorizontalAlignment="Center"
                                                   VerticalAlignment="Top">
                                                 <Grid.Background>
-                                                    <ImageBrush ImageSource="{Binding Image}" />
+                                                    <ImageBrush ImageSource="{Binding Image, UpdateSourceTrigger=PropertyChanged}" />
                                                 </Grid.Background>
                                                 <Rectangle Width="150"
                                                            Height="153"
@@ -1118,8 +1104,7 @@
                                                         FocusVisualStyle="{x:Null}"
                                                         FontSize="16"
                                                         FontWeight="SemiBold"
-                                                        ToolTip="Chọn ảnh" 
-                                                        Visibility="{Binding AdminVisibility, Source={StaticResource Const}}"/>
+                                                        ToolTip="Chọn ảnh" />
 
                                             </Grid>
                                         </Grid>
@@ -1301,9 +1286,7 @@
                                                         FocusVisualStyle="{x:Null}"
                                                         FontSize="18"
                                                         IsDefault="True"
-                                                        ToolTip="Thêm" 
-                                                        Visibility="{Binding AdminVisibility, Source={StaticResource Const}}"
-                                                        />
+                                                        ToolTip="Thêm" />
                                             </Grid>
                                             <Grid Grid.Column="1">
                                                 <Button Width="100"
@@ -1319,7 +1302,6 @@
                                                         FocusVisualStyle="{x:Null}"
                                                         FontSize="18"
                                                         IsDefault="True"
-                                                        Visibility="{Binding AdminVisibility, Source={StaticResource Const}}"
                                                         ToolTip="Sửa" />
                                             </Grid>
                                             <Grid Grid.Column="2">
@@ -1335,7 +1317,6 @@
                                                         FocusVisualStyle="{x:Null}"
                                                         FontSize="18"
                                                         Style="{StaticResource MaterialDesignRaisedButton}"
-                                                        Visibility="{Binding AdminVisibility, Source={StaticResource Const}}"
                                                         ToolTip="Xóa" />
                                             </Grid>
 
@@ -1367,11 +1348,10 @@
 
                     <Grid Background="Transparent">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="632*" />
-                            <ColumnDefinition Width="104*"/>
-                            <ColumnDefinition Width="491*" />
+                            <ColumnDefinition Width="6*" />
+                            <ColumnDefinition Width="4*" />
                         </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,491,0">
+                        <Grid Grid.Column="0">
 
                             <Border Margin="20,20,10,20"
                                     Background="white"
@@ -1527,14 +1507,19 @@
                                                                                    EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
                                                                                    ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
                                                                                    Header="Role" />
+
+
                                             </DataGrid.Columns>
                                         </DataGrid>
 
                                     </Grid>
                                 </Grid>
+
+
+
                             </Border>
                         </Grid>
-                        <Grid Grid.Column="2">
+                        <Grid Grid.Column="1">
                             <Border Background="Transparent"
                                     Visibility="{Binding Visibility}">
                                 <Border Margin="10,20,20,20"
@@ -1587,7 +1572,7 @@
                                                             FontSize="16"
                                                             FontWeight="SemiBold"
                                                             ToolTip="Select Image" 
-                                                            Visibility="{Binding AdminVisibility, Source={StaticResource Const}}"/>
+                                                            Visibility="{Binding AdminVisibility}"/>
 
                                             </Grid>
                                         </Grid>
@@ -1830,12 +1815,9 @@
                                                   Height="40"
                                                   Margin="0,300,0,0"
                                                   VerticalAlignment="Top"
-                                                  Visibility="{Binding AdminVisibility, Source={StaticResource Const}}">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="81*"/>
-                                                    <ColumnDefinition Width="94*"/>
-                                                </Grid.ColumnDefinitions>
+                                                  Visibility="{Binding AdminVisibility}">
                                                 <Label Height="32"
+                                                       Margin="0"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"
                                                        Content="Password"
@@ -1844,16 +1826,16 @@
                                                        Foreground="Black" />
                                                 <Rectangle Width="230"
                                                            Height="40"
-                                                           Margin="120,0,0,0"
-                                                           HorizontalAlignment="Left"
+                                                           Margin="0"
+                                                           HorizontalAlignment="Right"
                                                            RadiusX="6"
                                                            RadiusY="6"
-                                                           Stroke="Gray" Grid.ColumnSpan="2" />
+                                                           Stroke="Gray" />
                                                 <TextBox Width="210"
                                                          Height="40"
-                                                         Margin="130,0,0,0"
+                                                         Margin="0,0,10,0"
                                                          Padding="0"
-                                                         HorizontalAlignment="Left"
+                                                         HorizontalAlignment="Right"
                                                          HorizontalContentAlignment="Left"
                                                          VerticalContentAlignment="Center"
                                                          materialDesign:HintAssist.Hint="Password"
@@ -1862,7 +1844,7 @@
                                                          FontSize="14"
                                                          FontWeight="SemiBold"
                                                          Foreground="Gray"
-                                                         Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" />
+                                                         Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                             </Grid>
                                         </Grid>
 
@@ -1889,7 +1871,7 @@
                                                         FontSize="18"
                                                         IsDefault="True"
                                                         ToolTip="Thêm" 
-                                                        Visibility="{Binding AdminVisibility, Source={StaticResource Const}}"/>
+                                                            Visibility="{Binding AdminVisibility}"/>
                                             </Grid>
                                             <Grid Grid.Column="1">
                                                 <Button x:Name="btnEdit1"
@@ -1907,7 +1889,7 @@
                                                         FontSize="18"
                                                         IsDefault="True"
                                                         ToolTip="Sửa" 
-                                                            Visibility="{Binding AdminVisibility, Source={StaticResource Const}}"/>
+                                                            Visibility="{Binding AdminVisibility}"/>
                                             </Grid>
                                             <Grid Grid.Column="2">
                                                 <Button x:Name="btnDelete1"
@@ -1924,7 +1906,7 @@
                                                             FontSize="18"
                                                             Style="{StaticResource MaterialDesignRaisedButton}"
                                                             ToolTip="Xóa" 
-                                                            Visibility="{Binding AdminVisibility, Source={StaticResource Const}}"/>
+                                                            Visibility="{Binding AdminVisibility}"/>
                                             </Grid>
 
                                         </Grid>
@@ -1936,8 +1918,7 @@
                     </Grid>
 
                 </TabItem>
-                <TabItem DataContext="{StaticResource AddRoomForAdminVm}"
-                         Visibility="{Binding AdminVisibility, Source={StaticResource Const}}">
+                <TabItem DataContext="{StaticResource AddRoomForAdminVm}">
                     <TabItem.Header>
                         <StackPanel Width="auto"
                                     Height="auto">
@@ -2101,7 +2082,7 @@
                                                                                    EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
                                                                                    ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
                                                                                    Header="Status" ></materialDesign:DataGridTextColumn>
-
+                                                
 
 
                                             </DataGrid.Columns>
@@ -2164,7 +2145,7 @@
                                                             FontSize="16"
                                                             FontWeight="SemiBold"
                                                             ToolTip="Select Image" 
-                                                            Visibility="{Binding AdminVisibility, Source={StaticResource Const}}"/>
+                                                            Visibility="{Binding AdminVisibility}"/>
 
                                             </Grid>
                                         </Grid>
@@ -2211,7 +2192,7 @@
                                                          FontWeight="SemiBold"
                                                          Foreground="Gray"
                                                          MaxLines="1"
-                                                         Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  />
+                                                         Text="{Binding RoomNum, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  />
                                             </Grid>
                                             <Grid Width="350"
                                                   Height="40"
@@ -2245,15 +2226,12 @@
                                                                  FontSize="14"
                                                                  FontWeight="SemiBold"
                                                                  Foreground="Gray"
-                                                                 Text="{Binding Sex, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                                                 Text="{Binding Type, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                                                     <ComboBoxItem Cursor="Hand">
-                                                        <TextBlock Text="Single"/>
+                                                        <TextBlock Text="Male"/>
                                                     </ComboBoxItem>
                                                     <ComboBoxItem Cursor="Hand">
-                                                        <TextBlock Text="Double"/>
-                                                    </ComboBoxItem>
-                                                    <ComboBoxItem Cursor="Hand">
-                                                        <TextBlock Text="Triple"/>
+                                                        <TextBlock Text="Female"/>
                                                     </ComboBoxItem>
                                                 </ComboBox>
                                             </Grid>
@@ -2276,7 +2254,7 @@
                                                            RadiusX="6"
                                                            RadiusY="6"
                                                            Stroke="Gray" />
-                                                <TextBox Width="210"
+                                                <ComboBox Width="210"
                                                          Height="40"
                                                          Margin="0,0,10,0"
                                                          Padding="0"
@@ -2289,7 +2267,12 @@
                                                          FontSize="14"
                                                          FontWeight="SemiBold"
                                                          Foreground="Gray"
-                                                         Text="{Binding CCCD, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:C}}" />
+                                                         Text="{Binding Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:C}}">
+
+                                                    <ComboBoxItem>Good</ComboBoxItem>
+                                                    <ComboBoxItem>Normal</ComboBoxItem>
+                                                    <ComboBoxItem>Repairing</ComboBoxItem>
+                                                </ComboBox>
                                             </Grid>
                                         </Grid>
 
@@ -2315,7 +2298,7 @@
                                                         FontSize="18"
                                                         IsDefault="True"
                                                         ToolTip="Thêm" 
-                                                            Visibility="{Binding AdminVisibility, Source={StaticResource Const}}"/>
+                                                            Visibility="{Binding AdminVisibility}"/>
                                             </Grid>
                                             <Grid Grid.Column="1">
                                                 <Button Width="100"
@@ -2332,7 +2315,7 @@
                                                         FontSize="18"
                                                         IsDefault="True"
                                                         ToolTip="Sửa" 
-                                                            Visibility="{Binding AdminVisibility, Source={StaticResource Const}}"/>
+                                                            Visibility="{Binding AdminVisibility}"/>
                                             </Grid>
                                             <Grid Grid.Column="2">
                                                 <Button 
@@ -2349,7 +2332,7 @@
                                                             FontSize="18"
                                                             Style="{StaticResource MaterialDesignRaisedButton}"
                                                             ToolTip="Xóa" 
-                                                            Visibility="{Binding AdminVisibility, Source={StaticResource Const}}"/>
+                                                            Visibility="{Binding AdminVisibility}"/>
                                             </Grid>
 
                                         </Grid>
