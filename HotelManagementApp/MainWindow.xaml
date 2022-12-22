@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:uc="clr-namespace:HotelManagementApp.UserControlUI"
+        xmlns:viewmodel="clr-namespace:HotelManagementApp.ViewModel" 
+        d:DataContext="{d:DesignInstance Type=viewmodel:FoodViewModel}"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
