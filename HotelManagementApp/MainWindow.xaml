@@ -508,61 +508,71 @@
 
                                 </Grid>
                                 <Grid Grid.Row="1">
-                                    <Border CornerRadius="30">
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="1*" />
-                                                <RowDefinition Height="8*" />
-                                            </Grid.RowDefinitions>
-                                            <Grid Grid.Row="0">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="6*" />
-                                                    <ColumnDefinition Width="4*" />
-                                                </Grid.ColumnDefinitions>
-                                                <Grid Grid.Column="0">
-                                                    <TextBlock Margin="20,10,10,10"
-                                                               VerticalAlignment="Center"
-                                                               FontSize="20"
-                                                               FontWeight="DemiBold"
-                                                               Text="Current Order" />
-                                                </Grid>
-                                                <Grid Grid.Column="1">
+                                     <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto">
+                                        <ListBox Background="White" ItemsSource="{Binding PendingOrdersList,UpdateSourceTrigger=PropertyChanged}"
+                                                         SelectedItem="{Binding Path=SelectedItem,Mode=TwoWay}"
+                                                         x:Name="lbOrdersList" Height="410" Width="340" Margin="0,0,10,0">
+                                            <ListBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel IsItemsHost="True" Orientation="Vertical"/>
+                                                </ItemsPanelTemplate>
+                                            </ListBox.ItemsPanel>
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Background="Bisque" BorderThickness="1" BorderBrush="Gray"
+                                                                    MaxHeight="100" MaxWidth="320" CornerRadius="4" Padding="4">
+                                                        <DockPanel>
+                                                            <Image 
+                                                                        Margin="0,0,10,0"
+                                                                        Source="{Binding Path=ImageData, UpdateSourceTrigger=PropertyChanged}"
+                                                                        DockPanel.Dock="Left"
+                                                                        MaxHeight="100" MaxWidth="100"
+                                                                        MinHeight="100" MinWidth="100" Height="67"/>
+                                                            <TextBlock VerticalAlignment="Center" DockPanel.Dock="Top" FontWeight="Bold">
+                                                                        <Run Text="Name: "/>
+                                                                        <Run Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}"/>
+                                                            </TextBlock>
 
-                                                    <Button Width="100"
-                                                            Background="#FFFFDDDD"
-                                                            BorderBrush="#FFFFDDDD"
-                                                            BorderThickness="0"
-                                                            Command="{Binding ClearAllCommand}"
-                                                            Content="Clear all"
-                                                            Foreground="Red"
-                                                            SnapsToDevicePixels="True" />
-                                                </Grid>
-                                            </Grid>
-                                            <Grid Grid.Row="1">
-                                                <ItemsControl ItemsSource="{Binding OrdersList}">
-                                                    <ItemsControl.ItemsPanel>
-                                                        <ItemsPanelTemplate>
-                                                            <StackPanel Background="White"
-                                                                        Orientation="Vertical" />
-                                                        </ItemsPanelTemplate>
-                                                    </ItemsControl.ItemsPanel>
-                                                    <ItemsControl.ItemTemplate>
-                                                        <DataTemplate>
-                                                            <!--<local:ProductDetailsControl />-->
-                                                        </DataTemplate>
-                                                    </ItemsControl.ItemTemplate>
-                                                    <ItemsControl.Template>
-                                                        <ControlTemplate>
-                                                            <ScrollViewer Padding="{TemplateBinding Padding}">
-                                                                <ItemsPresenter />
-                                                            </ScrollViewer>
+                                                            <DockPanel Height="15" DockPanel.Dock="Top">
+                                                                <TextBlock VerticalAlignment="Top" DockPanel.Dock="Left" Width="80">
+                                                                            <Run Text="Unit: "/>
+                                                                            <Run Text="{Binding Unit,UpdateSourceTrigger=PropertyChanged}"/>
+                                                                </TextBlock>
+                                                                <TextBlock VerticalAlignment="Top" DockPanel.Dock="Left">
+                                                                            <Run Text="Price: "/>
+                                                                            <Run Text="{Binding Price,UpdateSourceTrigger=PropertyChanged}"/>
+                                                                </TextBlock>
 
-                                                        </ControlTemplate>
-                                                    </ItemsControl.Template>
-                                                </ItemsControl>
-                                            </Grid>
-                                        </Grid>
-                                    </Border>
+                                                            </DockPanel>
+                                                            <DockPanel Height="20" DockPanel.Dock="Top">
+                                                                <TextBlock Text="Quantity:" DockPanel.Dock="Left" Width="80"/>
+                                                                <TextBlock Text="Total price:" DockPanel.Dock="Left"/>
+                                                            </DockPanel>
+                                                            <DockPanel>
+                                                                <TextBox DockPanel.Dock="Left" Background="White"
+                                                                                    Width="40" Height="30" TextAlignment="Center"
+                                                                                    Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                                                                <TextBlock DockPanel.Dock="Right" Background="White"
+                                                                                    Width="110" Height="20" Margin="0,0,10,0" TextAlignment="Right"
+                                                                                    Text="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                                                                <Button DockPanel.Dock="Top" Height="15" Width="15" 
+                                                                                HorizontalAlignment="Left" Margin="5,0"
+                                                                                Background="White" Foreground="Black"
+                                                                                Style="{StaticResource MaterialDesignIconButton}" 
+                                                                                Content="{materialDesign:PackIcon Kind=MenuUp, Size=14}" VerticalContentAlignment="Stretch"/>
+
+                                                                <Button DockPanel.Dock="Bottom" Height="15" Width="15"  
+                                                                                HorizontalAlignment="Left" Margin="5,0"
+                                                                                Background="White" Foreground="Black"
+                                                                                Style="{StaticResource MaterialDesignIconButton}"
+                                                                                Content="{materialDesign:PackIcon Kind=MenuDown,Size=14}" VerticalContentAlignment="Stretch"/>
+                                                            </DockPanel>
+                                                        </DockPanel>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </ScrollViewer>
                                 </Grid>
 
                                 <!--  Tong tien  -->
